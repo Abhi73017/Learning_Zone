@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Learning Zone</string>
+
+    <string name="Role">Choose a country</string>
+
+    <string-array name="Role">
+        <item>Select Your Role     ></item>
+        <item>Trainer</item>
+        <item>Learner</item>
+    </string-array>
+</resources>
