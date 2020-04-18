@@ -14,7 +14,9 @@
         app:layout_constraintTop_toTopOf="@id/guideline21"
         app:layout_constraintBottom_toBottomOf="@id/guideline22"
         app:layout_constraintEnd_toEndOf="@id/guideline18"
-        app:layout_constraintStart_toStartOf="@id/guideline17"></com.abhishek.learningzone.CurvedNavigationBarView>
+        app:layout_constraintStart_toStartOf="@id/guideline17">
+
+    </com.abhishek.learningzone.CurvedNavigationBarView>
 
     <RelativeLayout
         android:id="@+id/lin_id"
@@ -23,9 +25,8 @@
         android:layout_gravity="bottom|center"
         android:background="@drawable/oval"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
+        app:layout_constraintEnd_toEndOf="@id/guideline18"
+        app:layout_constraintStart_toStartOf="@id/guideline17">
         <com.sdsmdg.harjot.vectormaster.VectorMasterView
             android:id="@+id/fab"
             android:layout_width="45dp"
