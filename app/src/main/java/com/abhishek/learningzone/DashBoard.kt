@@ -7,10 +7,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sdsmdg.harjot.vectormaster.VectorMasterView
 import com.sdsmdg.harjot.vectormaster.models.PathModel
 import kotlinx.android.synthetic.main.activity_dash_board.*
+import com.abhishek.learningzone.main_fragments.Home
+import com.abhishek.learningzone.main_fragments.My_account
+import com.abhishek.learningzone.main_fragments.info
 
 class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -20,13 +24,32 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
 
+        var fragment:Fragment = Home()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.commit()
+
         bottom_nav.inflateMenu(R.menu.main_menu)
         bottom_nav.selectedItemId = R.id.home
         bottom_nav.setOnNavigationItemSelectedListener(this@DashBoard)
 
     }
 
+
+    private fun onFragmentLoad (fragment1:Fragment): Boolean{
+        if (fragment1!=null){
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment1)
+                .commit()
+            return true
+        }
+        return false
+    }
+
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+        var fragment:Fragment = Home()
+
         when(p0.itemId){
             R.id.account->{
                 draw(6)
@@ -34,7 +57,7 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
                 fab.visibility = View.VISIBLE
                 fab1.visibility = View.GONE
                 fab2.visibility = View.GONE
-
+                fragment = My_account()
                 drawAnimation(fab)
                 Toast.makeText(this, "Clicked on My Account", Toast.LENGTH_SHORT).show()
             }
@@ -44,7 +67,7 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
                 fab.visibility = View.GONE
                 fab1.visibility = View.VISIBLE
                 fab2.visibility = View.GONE
-
+                fragment = Home()
                 drawAnimation(fab1)
                 Toast.makeText(this, "Clicked on Home", Toast.LENGTH_SHORT).show()
             }
@@ -54,12 +77,12 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
                 fab.visibility = View.GONE
                 fab1.visibility = View.GONE
                 fab2.visibility = View.VISIBLE
-
+                fragment = info()
                 drawAnimation(fab2)
                 Toast.makeText(this, "Clicked on Info", Toast.LENGTH_SHORT).show()
             }
     }
-        return true
+        return onFragmentLoad(fragment)
     }
 
     private fun drawAnimation(fab: VectorMasterView?) {

@@ -1,13 +1,10 @@
 package com.abhishek.learningzone
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Point
+import android.graphics.*
+import android.graphics.Color.*
 import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.graphics.Path
 
 
 class CurvedNavigationBarView : BottomNavigationView {
@@ -48,8 +45,8 @@ class CurvedNavigationBarView : BottomNavigationView {
         mPath = Path()
         mPaint = Paint()
         mPaint!!.style =Paint.Style.FILL_AND_STROKE
-        mPaint!!.color = Color.WHITE
-        setBackgroundColor(Color.TRANSPARENT)
+        mPaint!!.color = rgb(66,171,241)
+        setBackgroundColor(TRANSPARENT)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
