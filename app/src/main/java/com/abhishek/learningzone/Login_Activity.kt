@@ -15,16 +15,19 @@ import kotlinx.android.synthetic.main.activity_login.*
 class Login_Activity : AppCompatActivity(){
 
     private lateinit var mDatabaseref : DatabaseReference
+    private lateinit var email: String
+    private lateinit var password: String
 
     private lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val email = fieldEmail.text.toString()
-        val password = fieldPassword.text.toString()
+
         auth = FirebaseAuth.getInstance()
 
         button.setOnClickListener {
+            email = fieldEmail.text.toString()
+            password = fieldPassword.text.toString()
             signin(email, password)
 
         }
@@ -37,6 +40,7 @@ class Login_Activity : AppCompatActivity(){
 
     private fun signin(email:String, pass:String){
         if (!validateForm()) {
+            println("not auth lol")
             return
         }
 
