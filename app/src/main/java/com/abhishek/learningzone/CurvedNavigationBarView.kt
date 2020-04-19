@@ -11,7 +11,7 @@ class CurvedNavigationBarView : BottomNavigationView {
 
     private var mPath: Path? = null
     private var mPaint:Paint?=null
-    val CURVED_RADIUS = 90
+    val CURVED_RADIUS = 60
 
     var mFirstCurveStartPoint = Point()
     var mFirstCurveEndPoint = Point()

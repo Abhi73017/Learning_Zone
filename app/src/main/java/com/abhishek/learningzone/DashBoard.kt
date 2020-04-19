@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sdsmdg.harjot.vectormaster.VectorMasterView
@@ -17,6 +16,7 @@ import com.abhishek.learningzone.main_fragments.My_account
 import com.abhishek.learningzone.main_fragments.info
 
 class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
 
     internal lateinit var outline : PathModel
 
@@ -53,33 +53,30 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
         when(p0.itemId){
             R.id.account->{
                 draw(6)
-                lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
-                fab.visibility = View.VISIBLE
-                fab1.visibility = View.GONE
-                fab2.visibility = View.GONE
+                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
+                lin_id1.visibility = View.VISIBLE
+                lin_id.visibility = View.GONE
+                lin_id2.visibility = View.GONE
                 fragment = My_account()
-                drawAnimation(fab)
-                Toast.makeText(this, "Clicked on My Account", Toast.LENGTH_SHORT).show()
+                drawAnimation(fab2)
             }
             R.id.home->{
                 draw(2)
-                lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
-                fab.visibility = View.GONE
-                fab1.visibility = View.VISIBLE
-                fab2.visibility = View.GONE
+                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
+                lin_id1.visibility = View.GONE
+                lin_id.visibility = View.VISIBLE
+                lin_id2.visibility = View.GONE
                 fragment = Home()
                 drawAnimation(fab1)
-                Toast.makeText(this, "Clicked on Home", Toast.LENGTH_SHORT).show()
             }
             R.id.info->{
                 draw()
-                lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
-                fab.visibility = View.GONE
-                fab1.visibility = View.GONE
-                fab2.visibility = View.VISIBLE
+                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
+                lin_id.visibility = View.GONE
+                lin_id1.visibility = View.GONE
+                lin_id2.visibility = View.VISIBLE
                 fragment = info()
-                drawAnimation(fab2)
-                Toast.makeText(this, "Clicked on Info", Toast.LENGTH_SHORT).show()
+                drawAnimation(fab3)
             }
     }
         return onFragmentLoad(fragment)
