@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/fieldEmail"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shadow_back"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/fieldPassword"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shadow_back"
@@ -32,6 +32,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.85"
@@ -51,7 +52,7 @@
         android:text="LogIn"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="23dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
@@ -166,7 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.750"
+        app:layout_constraintGuide_percent="0.760"
         app:layout_constraintGuide_begin="20dp" />
 
     <androidx.constraintlayout.widget.Guideline

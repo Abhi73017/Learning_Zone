@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579353541950",
+    "firebase_url": "https://learning-zone-72c5f.firebaseio.com",
+    "project_id": "learning-zone-72c5f",
+    "storage_bucket": "learning-zone-72c5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579353541950:android:4e3bd664020371a1ff006f",
+        "android_client_info": {
+          "package_name": "com.abhishek.learningzone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579353541950-jr64ovqs3i5u5ummh6rlqm0itser1q11.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abhishek.learningzone",
+            "certificate_hash": "b74d515eedaa25111f06d304fba7b6c58381f457"
+          }
+        },
+        {
+          "client_id": "579353541950-tscu7ji97bk4212beihgoj2ompkkcg6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8RbzPvsgCBEqsCmMdjajKzSOh_bdCLoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579353541950-tscu7ji97bk4212beihgoj2ompkkcg6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
