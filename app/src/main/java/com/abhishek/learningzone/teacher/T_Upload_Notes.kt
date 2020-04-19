@@ -9,24 +9,20 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
 import com.abhishek.learningzone.R
 //import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_upload.*
+import kotlinx.android.synthetic.main.activity_t_upload_notes.*
 
 
-class UploadActivity : AppCompatActivity() {
+class T_Upload_Notes : AppCompatActivity() {
     private lateinit var uri:Uri
     private lateinit var course:String
 //    var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_upload)
-
-
-
+        setContentView(R.layout.activity_t_upload_notes)
 
         course_selector.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -70,12 +66,7 @@ class UploadActivity : AppCompatActivity() {
                 UploadToStroage(filename,uri,course)
             }
         }
-
-
-
     }
-
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -98,20 +89,17 @@ class UploadActivity : AppCompatActivity() {
 //        }
         FirebaseStorage.getInstance().getReference("/$course/$filename").apply {
             putFile(uri)
-                    .addOnSuccessListener {
-                        println("upload succesfully ${it.metadata?.path}")
-                        choosenText.text = "Successfully Uploaded !! Filename: $filename Course: $course"
+                .addOnSuccessListener {
+                    println("upload succesfully ${it.metadata?.path}")
+                    choosenText.text = "Successfully Uploaded !! Filename: $filename Course: $course"
 
-                    }
-                    .addOnFailureListener {
-                        choosenText.text = "Uploading Failed"
-                        Toast.makeText(this@UploadActivity, "Upload Failed" ,Toast.LENGTH_SHORT)
-                    }
-
+                }
+                .addOnFailureListener {
+                    choosenText.text = "Uploading Failed"
+                    Toast.makeText(this@T_Upload_Notes, "Upload Failed" ,Toast.LENGTH_SHORT)
+                }
         }
     }
-
-
 
     // Signin Anonmously
 

@@ -10,12 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".teacher.UploadActivity"></activity>
+        <activity android:name=".teacher.T_send_notice"></activity>
+        <activity android:name=".teacher.T_check_assign" />
+        <activity android:name=".teacher.T_Upload_assign" />
+        <activity android:name=".teacher.trainer_dashbaord" />
+        <activity android:name=".teacher.T_Upload_Notes" />
         <activity android:name=".DashBoard" />
         <activity android:name=".Login_Activity" />
         <activity android:name=".Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
