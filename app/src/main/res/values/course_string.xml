@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="course">
+        <item>select An option</item>
+        <item>C Language</item>
+        <item>c++</item>
+        <item>Python</item>
+        <item>Java</item>
+        <item>Android</item>
+    </string-array>
+</resources>
