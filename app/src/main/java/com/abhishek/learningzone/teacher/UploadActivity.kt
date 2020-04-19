@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 import com.abhishek.learningzone.R
-import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_upload.*
 
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_upload.*
 class UploadActivity : AppCompatActivity() {
     private lateinit var uri:Uri
     private lateinit var course:String
-    var mAuth = FirebaseAuth.getInstance()
+//    var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,11 +91,11 @@ class UploadActivity : AppCompatActivity() {
 
 
     private fun  UploadToStroage(filename:String, uri: Uri, course:String){
-        val user = mAuth.currentUser
-        if (user == null) {
-            signInAnonymously()
-            return
-        }
+//        val user = mAuth.currentUser
+//        if (user == null) {
+//            signInAnonymously()
+//
+//        }
         FirebaseStorage.getInstance().getReference("/$course/$filename").apply {
             putFile(uri)
                     .addOnSuccessListener {
@@ -115,14 +115,14 @@ class UploadActivity : AppCompatActivity() {
 
     // Signin Anonmously
 
-    private fun signInAnonymously() {
-        mAuth.signInAnonymously()
-            .addOnSuccessListener(this) {
-
-                Log.d("anonmousSignin","Logged Through anonmous signin")
-            }
-            .addOnFailureListener(
-                this
-            ) { exception -> Log.e("Login", "signInAnonymously:FAILURE", exception) }
-    }
+//    private fun signInAnonymously() {
+//        mAuth.signInAnonymously()
+//            .addOnSuccessListener(this) {
+//                println("Anonmous signin done")
+//                Log.d("anonmousSignin","Logged Through anonmous signin")
+//            }
+//            .addOnFailureListener(
+//                this
+//            ) { exception -> Log.e("Login", "signInAnonymously:FAILURE", exception) }
+//    }
 }
