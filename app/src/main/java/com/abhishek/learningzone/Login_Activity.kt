@@ -1,5 +1,6 @@
 package com.abhishek.learningzone
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,15 +11,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
+import dmax.dialog.SpotsDialog
+
 
 
 class Login_Activity : AppCompatActivity(){
 
+    lateinit var alertdialog: AlertDialog
     private lateinit var mDatabaseref : DatabaseReference
     private lateinit var email: String
     private lateinit var password: String
-
     private lateinit var auth:FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -26,6 +30,7 @@ class Login_Activity : AppCompatActivity(){
         auth = FirebaseAuth.getInstance()
 
         button.setOnClickListener {
+
             email = fieldEmail.text.toString()
             password = fieldPassword.text.toString()
             signin(email, password)
@@ -88,6 +93,7 @@ class Login_Activity : AppCompatActivity(){
 
             override fun onDataChange(p0: DataSnapshot) {
                 var role : String = p0.child("role").value.toString()
+                println(role)
                 if (role==spinner1.selectedItem.toString()){
                     if (role=="trainer"){
                         var intent = Intent(this@Login_Activity, trainer_dashbaord::class.java)
@@ -104,7 +110,6 @@ class Login_Activity : AppCompatActivity(){
                     Toast.makeText(this@Login_Activity, "You are not Authorised to Login as Selected Role", Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
         )
 

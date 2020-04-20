@@ -3,8 +3,9 @@
 
     <string-array name="Role">
         <item>Select Your Role     ></item>
-        <item>Trainer</item>
-        <item>Learner</item>
+        <item>trainer</item>
+        <item>learner</item>
+        <item>Admin</item>
     </string-array>
 
 
