@@ -31,7 +31,7 @@ class courseAdapter (
 
     override fun onBindViewHolder(holder: courseItemViewHolder, position: Int) {
         holder.itemView.View_btn.setOnClickListener {
-            println(course_items[position].downloadUri)
+
             Toast.makeText(it.context,course_items[position].downloadUri,Toast.LENGTH_SHORT).show()
         }
         holder.itemView.apply {
