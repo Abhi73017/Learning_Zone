@@ -111,6 +111,7 @@ class Login_Activity : AppCompatActivity(){
                         startActivity(intent)
                         finish()
                     }
+
                 }
                 else{
                     Toast.makeText(this@Login_Activity, "You are not Authorised to Login as Selected Role", Toast.LENGTH_SHORT).show()

@@ -15,7 +15,7 @@ class Home : Fragment() {
     companion object {
         fun newInstance() = Home()
     }
-    val images = arrayOf<Int>(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3)
+    val images = arrayOf<Int>(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4,R.drawable.slide5)
 
 
     override fun onCreateView(
@@ -38,7 +38,7 @@ class Home : Fragment() {
         var imageview = ImageView(activity)
         imageview.setBackgroundResource(image)
         v_flipper.addView(imageview)
-        v_flipper.flipInterval = 3000
+        v_flipper.flipInterval = 2500
         v_flipper.startFlipping()
         v_flipper.isAutoStart = true
         v_flipper.setInAnimation(activity, android.R.anim.slide_in_left)
