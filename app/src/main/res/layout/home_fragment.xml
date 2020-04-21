@@ -15,7 +15,9 @@
         app:layout_constraintBottom_toBottomOf="@id/guideline38"
         app:layout_constraintEnd_toEndOf="@id/guideline34"
         app:layout_constraintStart_toStartOf="@id/guideline33"
-        app:layout_constraintTop_toTopOf="@id/guideline37" />
+        app:layout_constraintTop_toTopOf="@id/guideline37" >
+
+    </ViewFlipper>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline32"
@@ -71,7 +73,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.34"/>
+        app:layout_constraintGuide_percent="0.365"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline39"

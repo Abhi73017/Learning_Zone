@@ -39,9 +39,9 @@ class Home : Fragment() {
         imageview.setBackgroundResource(image)
         v_flipper.addView(imageview)
         v_flipper.flipInterval = 3000
+        v_flipper.startFlipping()
         v_flipper.isAutoStart = true
         v_flipper.setInAnimation(activity, android.R.anim.slide_in_left)
         v_flipper.setOutAnimation(activity, android.R.anim.slide_out_right)
     }
-
 }
