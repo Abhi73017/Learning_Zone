@@ -33,7 +33,7 @@ class Login_Activity : AppCompatActivity(){
         }
 
         testbtn.setOnClickListener{
-            startActivity(Intent(this,trainer_dashbaord::class.java))
+            startActivity(Intent(this,StudentViewActivity::class.java))
             finish()
         }
     }
