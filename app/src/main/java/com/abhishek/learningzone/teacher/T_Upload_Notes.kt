@@ -10,8 +10,6 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.abhishek.learningzone.R
-import com.abhishek.learningzone.model.DatabaseCourse
-import com.google.firebase.database.FirebaseDatabase
 //import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_t_upload_notes.*
@@ -59,12 +57,12 @@ class T_Upload_Notes : AppCompatActivity() {
         // Upload Buttn
         uploadbtn.setOnClickListener{
             val  filename =  filenameinput.text.toString().trim()
-            if (uri == null ||filename.isEmpty() ){
+            if (uri == null || filename.isEmpty() ){
                 Toast.makeText(this, "Choose Required Options" ,Toast.LENGTH_SHORT)
             }
 
             else{
-                choosenText.text = "Uploading Started"
+                //choosenText.text = "Uploading Started"
                 UploadToStroage(filename,uri,course)
             }
         }
@@ -77,42 +75,42 @@ class T_Upload_Notes : AppCompatActivity() {
             uri = data?.data!!
 
 
-            choosenText.text = uri.toString()
+            //choosenText.text = uri.toString()
 
         }
     }
 
 
     private fun  UploadToStroage(filename:String, uri: Uri, course:String){
-
+//        val user = mAuth.currentUser
+//        if (user == null) {
+//            signInAnonymously()
+//
+//        }
         FirebaseStorage.getInstance().getReference("/$course/$filename").apply {
             putFile(uri)
                 .addOnSuccessListener {
                     println("upload succesfully ${it.metadata?.path}")
-                    choosenText.text = "Successfully Uploaded !! Filename: $filename Course: $course"
-                    var fileref = it.metadata?.reference
-                    if (fileref != null) {
-                        fileref.downloadUrl.addOnSuccessListener {
-                            insertDatabase(course,filename,it.toString())
-                        }
-                    }
+                    //choosenText.text = "Successfully Uploaded !! Filename: $filename Course: $course"
 
                 }
                 .addOnFailureListener {
-                    choosenText.text = "Uploading Failed"
+                    //choosenText.text = "Uploading Failed"
                     Toast.makeText(this@T_Upload_Notes, "Upload Failed" ,Toast.LENGTH_SHORT)
                 }
         }
     }
 
+    // Signin Anonmously
 
-    private fun insertDatabase(course:String,filename: String,DownloadUri:String){
-            var Dref = FirebaseDatabase.getInstance().getReference("Course/$course")
-            var DId = Dref.push().key
-            var databaseCourse = DatabaseCourse(DId!! , filename,DownloadUri)
-            Dref.child(DId).setValue(databaseCourse).addOnSuccessListener {
-                Toast.makeText(applicationContext,"added To database",Toast.LENGTH_LONG).show()
-            }
-    }
-
+//    private fun signInAnonymously() {
+//        mAuth.signInAnonymously()
+//            .addOnSuccessListener(this) {
+//                println("Anonmous signin done")
+//                Log.d("anonmousSignin","Logged Through anonmous signin")
+//            }
+//            .addOnFailureListener(
+//                this
+//            ) { exception -> Log.e("Login", "signInAnonymously:FAILURE", exception) }
+//    }
 }

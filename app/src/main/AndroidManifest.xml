@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentViewActivity"></activity>
+        <activity android:name=".courses.C_pro"></activity>
+        <activity android:name=".Student.view_notices" />
+        <activity android:name=".Student.all_courses" />
+        <activity android:name=".Student.active_courses" />
+        <activity android:name=".Student.S_notes_view" />
+        <activity android:name=".StudentViewActivity" />
         <activity android:name=".teacher.T_send_notice" />
         <activity android:name=".teacher.T_check_assign" />
         <activity android:name=".teacher.T_Upload_assign" />
