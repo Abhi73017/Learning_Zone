@@ -15,7 +15,7 @@ class Home : Fragment() {
     companion object {
         fun newInstance() = Home()
     }
-    val images = arrayOf<Int>(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3)
+    val images = arrayOf<Int>(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4,R.drawable.slide5)
 
 
     override fun onCreateView(
