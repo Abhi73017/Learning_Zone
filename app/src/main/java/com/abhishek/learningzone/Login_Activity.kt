@@ -33,8 +33,9 @@ class Login_Activity : AppCompatActivity(){
 
             email = fieldEmail.text.toString()
             password = fieldPassword.text.toString()
-            signin(email, password)
-
+            //signin(email, password)
+            var intent = Intent(this, DashBoard::class.java)
+            startActivity(intent)
         }
 
         testbtn.setOnClickListener{
