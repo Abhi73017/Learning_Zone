@@ -17,7 +17,7 @@ class ActiveCourseViewActitity : AppCompatActivity() {
 
         val course  = intent.getStringExtra("course")
 
-        course_header.text = course.toString()
+        course_header.text = course?.toString()
 
         course_read_notes_btn.setOnClickListener {
             Intent(this, S_notes_view::class.java).apply {
@@ -50,7 +50,7 @@ class ActiveCourseViewActitity : AppCompatActivity() {
 //                putExtra("course",course)
 //                startActivity(this)
 //            }
-            ShowSnack(it,"Doubts Are Running On Our respected Whatsapp Groups")
+            ShowSnack(it,"Currently, Doubts session is running in respected WhatsApp Groups")
         }
 
     }
