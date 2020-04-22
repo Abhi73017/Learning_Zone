@@ -27,6 +27,7 @@ class S_notes_view : AppCompatActivity() {
         setContentView(R.layout.activity_s_notes_view)
         val intentCourse= intent.getStringExtra("course") ?: return
 
+
         FirebaseDatabase.getInstance().getReference("Course/$intentCourse").apply {
 
             addValueEventListener(object : ValueEventListener {

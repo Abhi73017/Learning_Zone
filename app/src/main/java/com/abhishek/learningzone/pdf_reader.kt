@@ -11,14 +11,16 @@ class pdf_reader : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_reader)
 
+
         webView.webViewClient = WebViewClient()
         webView.settings.setSupportZoom(true)
         webView.settings.javaScriptEnabled = true
 
+        val pdflink= intent.getStringExtra("downloaduri") ?: return
         //put the recieved download from recyclerview view button here in url
 
         // val url = url recieved from view button from recyclerview activity
 
-        //webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$url")
+        webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$pdflink")
     }
 }

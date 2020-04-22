@@ -1,5 +1,6 @@
 package com.abhishek.learningzone.student_adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.abhishek.learningzone.R
 import com.abhishek.learningzone.model.DatabaseCourse
+import com.abhishek.learningzone.pdf_reader
 import kotlinx.android.synthetic.main.learner_course_item_rv.view.*
 
 class courseAdapter (
@@ -28,8 +30,11 @@ class courseAdapter (
 
     override fun onBindViewHolder(holder: courseItemViewHolder, position: Int) {
         holder.itemView.View_btn.setOnClickListener {
+            Intent(it.context, pdf_reader::class.java).apply {
+                putExtra("downloaduri",course_items[position].downloadUri )
+                it.context.startActivity(this)
+            }
 
-            Toast.makeText(it.context,course_items[position].downloadUri,Toast.LENGTH_SHORT).show()
         }
         holder.itemView.apply {
             filename_Item.text = course_items[position].filename

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".courses.active_courses_list"></activity>
+        <activity android:name=".courses.ActiveCourseViewActitity"></activity>
+        <activity android:name=".courses.active_courses_list" />
         <activity android:name=".pdf_reader" />
         <activity android:name=".courses.Android" />
         <activity android:name=".courses.Python" />
