@@ -50,7 +50,7 @@ class T_Upload_Notes : AppCompatActivity() {
         // File Chooser
         selectfilebtn.setOnClickListener {
             Intent(Intent.ACTION_GET_CONTENT).also {
-                it.type = "*/*"
+                it.type = "application/pdf"
                 startActivityForResult(it,111)
             }
         }
