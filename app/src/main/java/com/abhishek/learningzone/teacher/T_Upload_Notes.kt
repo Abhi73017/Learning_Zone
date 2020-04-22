@@ -18,7 +18,7 @@ import java.io.File
 
 
 class T_Upload_Notes : AppCompatActivity() {
-    private lateinit var uri:Uri
+    private var uri: Uri? = null
     private lateinit var course:String
 //    var mAuth = FirebaseAuth.getInstance()
 
@@ -58,14 +58,16 @@ class T_Upload_Notes : AppCompatActivity() {
 
         // Upload Buttn
         uploadbtn.setOnClickListener{
-            val  filename =  filenameinput.text.toString().trim()
-            if (uri == null || filename.isEmpty() ){
-                Toast.makeText(this@T_Upload_Notes, "Choose Required Options" ,Toast.LENGTH_SHORT)
+
+            if (uri == null || filenameinput.text.isEmpty() ){
+
+                Toast.makeText(this@T_Upload_Notes, "Choose Required Options" ,Toast.LENGTH_SHORT).show()
             }
 
             else{
-                //choosenText.text = "Uploading Started"
-                UploadToStroage(filename,uri,course)
+                val  filename =  filenameinput.text.toString().trim()
+
+                UploadToStroage(filename, uri!!,course)
             }
         }
     }
