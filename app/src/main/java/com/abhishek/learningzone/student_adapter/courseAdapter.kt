@@ -7,9 +7,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.abhishek.learningzone.R
 import com.abhishek.learningzone.model.DatabaseCourse
-import com.abhishek.learningzone.model.couseItems
-import kotlinx.android.synthetic.main.activity_login.view.*
-import kotlinx.android.synthetic.main.activity_student_view.view.*
 import kotlinx.android.synthetic.main.learner_course_item_rv.view.*
 
 class courseAdapter (

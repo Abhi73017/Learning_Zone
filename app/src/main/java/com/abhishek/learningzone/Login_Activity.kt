@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import com.abhishek.learningzone.Student.S_notes_view
 import com.abhishek.learningzone.teacher.T_Upload_Notes
 import com.abhishek.learningzone.teacher.trainer_dashbaord
 import com.google.firebase.auth.FirebaseAuth
@@ -44,7 +45,7 @@ class Login_Activity : AppCompatActivity(){
 
         }
         viewbtn.setOnClickListener{
-            startActivity(Intent(this,StudentViewActivity::class.java))
+            startActivity(Intent(this,S_notes_view::class.java))
 
         }
     }
