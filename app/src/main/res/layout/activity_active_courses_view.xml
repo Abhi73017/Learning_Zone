@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".courses.C_pro"
+    tools:context=".courses.active_courses_view"
     android:background="@drawable/general_background">
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/bold"
-        android:text="C Programming"
+        android:text="Python"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/blue"
@@ -23,7 +23,7 @@
 
 
     <Button
-        android:id="@+id/c_pro_read_notes_btn"
+        android:id="@+id/python_read_notes_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_back1"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline71" />
 
     <Button
-        android:id="@+id/c_pro_solve_assign_btn"
+        android:id="@+id/python_solve_assign_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_back1"
@@ -56,6 +56,7 @@
 
 
     <Button
+        android:id="@+id/python_faq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_back1"
@@ -71,6 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline75" />
 
     <Button
+        android:id="@+id/python_doubts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_back1"
