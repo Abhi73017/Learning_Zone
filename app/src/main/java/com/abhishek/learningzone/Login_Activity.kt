@@ -45,14 +45,13 @@ class Login_Activity : AppCompatActivity(){
 
         }
         viewbtn.setOnClickListener{
-            startActivity(Intent(this,S_notes_view::class.java))
+            startActivity(Intent(this,pdf_reader::class.java))
 
         }
     }
 
     private fun signin(email:String, pass:String){
         if (!validateForm()) {
-            println("not auth lol")
             return
         }
 
