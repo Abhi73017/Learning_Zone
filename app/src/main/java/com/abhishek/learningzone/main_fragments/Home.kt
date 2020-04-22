@@ -2,12 +2,11 @@ package com.abhishek.learningzone.main_fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-
+import androidx.fragment.app.Fragment
 import com.abhishek.learningzone.R
 import com.abhishek.learningzone.Student.active_courses
 import com.abhishek.learningzone.Student.all_courses
@@ -21,14 +20,20 @@ class Home : Fragment() {
         fun newInstance() = Home()
     }
 
-    val images = arrayOf<Int>(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4,R.drawable.slide5)
+    val images = arrayOf<Int>(
+        R.drawable.slide1,
+        R.drawable.slide2,
+        R.drawable.slide3,
+        R.drawable.slide4,
+        R.drawable.slide5
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
 
     ): View? {
-        val view : View =  inflater.inflate(R.layout.home_fragment, container, false)
+        val view: View = inflater.inflate(R.layout.home_fragment, container, false)
 
         view.active_courses_btn.setOnClickListener {
             val intent = Intent(activity, active_courses::class.java)
@@ -44,17 +49,17 @@ class Home : Fragment() {
         }
 
         return view
-        }
+    }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        for (image in images){
+        for (image in images) {
             Sliderimage(image)
         }
     }
 
-    public fun Sliderimage(image : Int){
+    public fun Sliderimage(image: Int) {
         var imageview = ImageView(activity)
         imageview.setBackgroundResource(image)
         v_flipper.addView(imageview)

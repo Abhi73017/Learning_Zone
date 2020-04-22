@@ -19,14 +19,14 @@ import java.io.File
 
 class T_Upload_Notes : AppCompatActivity() {
     private var uri: Uri? = null
-    private lateinit var course:String
+    private lateinit var course: String
 //    var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_t_upload_notes)
 
-        course_selector.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+        course_selector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 return
             }
@@ -37,44 +37,42 @@ class T_Upload_Notes : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                if (position!=0){
+                if (position != 0) {
                     course = parent!!.getItemAtPosition(position).toString()
-                }else{
+                } else {
                     course = "Random"
                 }
             }
         }
 
 
-
         // File Chooser
         selectfilebtn.setOnClickListener {
             Intent(Intent.ACTION_GET_CONTENT).also {
                 it.type = "application/pdf"
-                startActivityForResult(it,111)
+                startActivityForResult(it, 111)
             }
         }
 
 
         // Upload Buttn
-        uploadbtn.setOnClickListener{
+        uploadbtn.setOnClickListener {
 
-            if (uri == null || filenameinput.text.isEmpty() ){
+            if (uri == null || filenameinput.text.isEmpty()) {
 
-                Toast.makeText(this@T_Upload_Notes, "Choose Required Options" ,Toast.LENGTH_SHORT).show()
-            }
+                Toast.makeText(this@T_Upload_Notes, "Choose Required Options", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                val filename = filenameinput.text.toString().trim()
 
-            else{
-                val  filename =  filenameinput.text.toString().trim()
-
-                UploadToStroage(filename, uri!!,course)
+                UploadToStroage(filename, uri!!, course)
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 111){
+        if (resultCode == Activity.RESULT_OK && requestCode == 111) {
 
             uri = data?.data!!
 
@@ -85,7 +83,7 @@ class T_Upload_Notes : AppCompatActivity() {
     }
 
 
-    private fun  UploadToStroage(filename:String, uri: Uri, course:String){
+    private fun UploadToStroage(filename: String, uri: Uri, course: String) {
 
         FirebaseStorage.getInstance().getReference("/$course/$filename").apply {
             putFile(uri)
@@ -94,14 +92,14 @@ class T_Upload_Notes : AppCompatActivity() {
                     var fileref = it.metadata?.reference
                     if (fileref != null) {
                         fileref.downloadUrl.addOnSuccessListener {
-                            insertDatabase(course,filename,it.toString())
+                            insertDatabase(course, filename, it.toString())
                         }
                     }
 
                 }
                 .addOnFailureListener {
                     //choosenText.text = "Uploading Failed"
-                    Toast.makeText(this@T_Upload_Notes, "Upload Failed" ,Toast.LENGTH_SHORT)
+                    Toast.makeText(this@T_Upload_Notes, "Upload Failed", Toast.LENGTH_SHORT)
                 }.addOnProgressListener {
                     val progress = (100.0 * it.bytesTransferred) / it.totalByteCount
                     upload_progress.progress = progress.toInt()
@@ -109,12 +107,12 @@ class T_Upload_Notes : AppCompatActivity() {
         }
     }
 
-    private fun insertDatabase(course:String,filename: String,DownloadUri:String){
+    private fun insertDatabase(course: String, filename: String, DownloadUri: String) {
         var Dref = FirebaseDatabase.getInstance().getReference("Course/$course")
         var DId = Dref.push().key
-        var databaseCourse = DatabaseCourse(DId!! , filename,DownloadUri)
+        var databaseCourse = DatabaseCourse(DId!!, filename, DownloadUri)
         Dref.child(DId).setValue(databaseCourse).addOnSuccessListener {
-            Toast.makeText(applicationContext,"Upload Complete",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Upload Complete", Toast.LENGTH_LONG).show()
         }
     }
 

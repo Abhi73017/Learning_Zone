@@ -1,7 +1,7 @@
 package com.abhishek.learningzone.teacher
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.abhishek.learningzone.R
 
 class T_send_notice : AppCompatActivity() {

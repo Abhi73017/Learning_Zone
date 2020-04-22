@@ -1,5 +1,6 @@
 package com.abhishek.learningzone
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +8,9 @@ import kotlinx.android.synthetic.main.activity_pdf_reader.*
 import java.io.UnsupportedEncodingException
 import java.net.URLEncoder
 
-class pdf_reader : AppCompatActivity() {
+class PdfReader : AppCompatActivity() {
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_reader)
@@ -18,9 +20,8 @@ class pdf_reader : AppCompatActivity() {
         webView.settings.setSupportZoom(true)
         webView.settings.javaScriptEnabled = true
 
-        var pdflink= intent.getStringExtra("downloaduri") ?: return
+        var pdflink = intent.getStringExtra("downloaduri") ?: return
 
-//        var pdflink = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
         try {
             pdflink = URLEncoder.encode(pdflink, "UTF-8")
         } catch (e: UnsupportedEncodingException) {

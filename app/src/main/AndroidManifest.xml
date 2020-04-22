@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.abhishek.learningzone">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,26 +12,29 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".courses.ActiveCourseViewActitity"></activity>
-        <activity android:name=".courses.active_courses_list" />
-        <activity android:name=".pdf_reader" />
-        <activity android:name=".courses.Android" />
-        <activity android:name=".courses.Python" />
-        <activity android:name=".courses.C_pro" />
+        android:theme="@style/AppTheme"
+        tools:targetApi="o">
+        <activity android:name=".PdfReader" />
         <activity android:name=".Student.view_notices" />
         <activity android:name=".Student.all_courses" />
         <activity android:name=".Student.active_courses" />
         <activity android:name=".Student.S_notes_view" />
-        <activity android:name=".StudentViewActivity" />
+        <activity android:name=".courses.ActiveCourseViewActivity" />
+
+        <!--
+        <activity android:name=".courses.active_courses_list" />
+        <activity android:name=".courses.Android" />
+        <activity android:name=".courses.Python" />
+        <activity android:name=".courses.C_pro" />
+        <activity android:name=".StudentViewActivity" />-->
         <activity android:name=".teacher.T_send_notice" />
         <activity android:name=".teacher.T_check_assign" />
         <activity android:name=".teacher.T_Upload_assign" />
-        <activity android:name=".teacher.trainer_dashbaord" />
+        <activity android:name=".teacher.TrainerDashboard" />
         <activity android:name=".teacher.T_Upload_Notes" />
         <activity android:name=".DashBoard" />
-        <activity android:name=".Login_Activity" />
-        <activity android:name=".Splash_Activity">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
