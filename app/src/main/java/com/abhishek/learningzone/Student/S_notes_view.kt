@@ -1,8 +1,10 @@
 package com.abhishek.learningzone.Student
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.abhishek.learningzone.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abhishek.learningzone.model.DatabaseCourse
@@ -38,12 +40,17 @@ class S_notes_view : AppCompatActivity() {
                 override fun onDataChange(data: DataSnapshot) {
 
                     if (data.exists()){
+
                         for (item in data.children){
                             val DATA = item.getValue(DatabaseCourse::class.java)
                             datacourse.add(DATA!!)
                         }
+                        if (course_loading_progress.visibility  == View.VISIBLE){
+                            course_loading_progress.visibility = View.GONE
+                        }
                         rcvCall(datacourse)
                     }
+
                 }
             })
         }
