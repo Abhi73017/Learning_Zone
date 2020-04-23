@@ -6,15 +6,17 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.abhishek.learningzone.all_courses_fragments.Engineering
 import com.abhishek.learningzone.all_courses_fragments.Programming
 
-class SectionsPagerAdapter(fm:FragmentManager) :FragmentPagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     override fun getItem(position: Int): Fragment {
 
-        return when (position){
+        return when (position) {
 
-            1 ->{ Engineering() }
+            1 -> {
+                Engineering()
+            }
 
 //
-            else->{
+            else -> {
                 return Programming()
             }
         }
@@ -28,10 +30,14 @@ class SectionsPagerAdapter(fm:FragmentManager) :FragmentPagerAdapter(fm,BEHAVIOR
 
     override fun getPageTitle(position: Int): CharSequence? {
 
-        return when(position){
-            1-> {"Engineering"}
+        return when (position) {
+            1 -> {
+                "Engineering"
+            }
 
-            else -> {return "Technology"}
+            else -> {
+                return "Technology"
+            }
         }
 
 

@@ -21,16 +21,16 @@ class Home : Fragment() {
     }
 
     val images = arrayOf<Int>(
-        R.drawable.slide1,
-        R.drawable.slide2,
-        R.drawable.slide3,
-        R.drawable.slide4,
-        R.drawable.slide5
+            R.drawable.slide1,
+            R.drawable.slide2,
+            R.drawable.slide3,
+            R.drawable.slide4,
+            R.drawable.slide5
     )
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
 
     ): View? {
         val view: View = inflater.inflate(R.layout.home_fragment, container, false)
@@ -60,7 +60,7 @@ class Home : Fragment() {
         }
     }
 
-    public fun Sliderimage(image: Int) {
+    fun Sliderimage(image: Int) {
         var imageview = ImageView(activity)
         imageview.setBackgroundResource(image)
         v_flipper.addView(imageview)

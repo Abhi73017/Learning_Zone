@@ -16,7 +16,6 @@ import com.google.firebase.database.*
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
@@ -35,15 +34,13 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         login_btn.setOnClickListener {
-
-
             email = fieldEmail.text.toString()
             password = fieldPassword.text.toString()
-            alertdialog= SpotsDialog.Builder()
-                .setContext(this)
-                .setTheme(R.style.Custom)
-                .build()
-                .apply {show() }
+            alertdialog = SpotsDialog.Builder()
+                    .setContext(this)
+                    .setTheme(R.style.Custom)
+                    .build()
+                    .apply { show() }
             signin(email, password)
         }
     }
@@ -56,31 +53,31 @@ class LoginActivity : AppCompatActivity() {
         }
 
         auth.signInWithEmailAndPassword(email, pass)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    alertdialog.cancel()
-                    alertdialog= SpotsDialog.Builder()
-                        .setContext(this)
-                        .setTheme(R.style.Custom1)
-                        .build()
-                        .apply {show() }
-                    val user = auth.currentUser
-                    roleMatching(user)
-                } else {
-                    Log.e("LoginActivity", task.exception.toString())
-                    val bundle = Bundle()
-                    bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "LoginActivity")
-                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "AuthException")
-                    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "ExceptionMessage")
-                    bundle.putString(FirebaseAnalytics.Param.CONTENT, task.exception.toString())
-                    firebaseAnalytics.logEvent("Error", bundle)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    alertdialog.cancel()
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        alertdialog.cancel()
+                        alertdialog = SpotsDialog.Builder()
+                                .setContext(this)
+                                .setTheme(R.style.Custom1)
+                                .build()
+                                .apply { show() }
+                        val user = auth.currentUser
+                        roleMatching(user)
+                    } else {
+                        Log.e("LoginActivity", task.exception.toString())
+                        val bundle = Bundle()
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "LoginActivity")
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "AuthException")
+                        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "ExceptionMessage")
+                        bundle.putString(FirebaseAnalytics.Param.CONTENT, task.exception.toString())
+                        firebaseAnalytics.logEvent("Error", bundle)
+                        Toast.makeText(
+                                baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT
+                        ).show()
+                        alertdialog.cancel()
+                    }
                 }
-            }
     }
 
     private fun validateForm(): Boolean {
@@ -127,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }
-                    if (role == "Admin"){
+                    if (role == "Admin") {
                         val intent = Intent(this@LoginActivity, AdminDashboard::class.java)
                         startActivity(intent)
                         finish()
@@ -136,15 +133,13 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     alertdialog.cancel()
                     Toast.makeText(
-                        this@LoginActivity,
-                        "You are not Authorised to Login as ${spinner1.selectedItem}",
-                        Toast.LENGTH_SHORT
+                            this@LoginActivity,
+                            "You are not Authorised to Login as ${spinner1.selectedItem}",
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         }
         )
-
     }
-
 }

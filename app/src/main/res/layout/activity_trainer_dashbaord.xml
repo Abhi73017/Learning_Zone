@@ -109,7 +109,7 @@
         android:background="@drawable/btn_back"
         android:elevation="30dp"
         android:fontFamily="@font/bold"
-        android:text="LogOut"
+        android:text="Logout"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20dp"

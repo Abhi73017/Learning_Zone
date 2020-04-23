@@ -21,7 +21,7 @@ class TrainerDashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trainer_dashbaord)
 
-        val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
         NameAndCourseFind(user)
 
 
@@ -52,7 +52,7 @@ class TrainerDashboard : AppCompatActivity() {
         }
     }
 
-    private fun NameAndCourseFind(user:FirebaseUser?){
+    private fun NameAndCourseFind(user: FirebaseUser?) {
         mDatabaseref = FirebaseDatabase.getInstance().reference.child("User").child(user!!.uid)
         mDatabaseref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -62,7 +62,7 @@ class TrainerDashboard : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(p0: DataSnapshot) {
                 val name: String = p0.child("name").value.toString()
-                val course : String = p0.child("courseteaching").value.toString()
+                val course: String = p0.child("courseteaching").value.toString()
                 textView_trainer_name.text = name
                 textView_course.text = "Course Teaching : $course"
             }

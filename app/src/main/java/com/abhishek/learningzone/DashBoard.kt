@@ -3,6 +3,7 @@ package com.abhishek.learningzone
 import android.animation.ValueAnimator
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -40,9 +41,9 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
     private fun onFragmentLoad(fragment1: Fragment): Boolean {
         if (fragment1 != null) {
             supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment1)
-                .commit()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment1)
+                    .commit()
             return true
         }
         return false
@@ -99,34 +100,34 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
 
     private fun draw(i: Int) {
         bottom_nav.mFirstCurveStartPoint.set(
-            bottom_nav.mNavigationBarWidth / i - bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS / 3,
-            0
+                bottom_nav.mNavigationBarWidth / i - bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS / 3,
+                0
         )
 
         bottom_nav.mFirstCurveEndPoint.set(
-            bottom_nav.mNavigationBarWidth / i,
-            bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4
+                bottom_nav.mNavigationBarWidth / i,
+                bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4
         )
         bottom_nav.mSecondCurveStartPoint = bottom_nav.mFirstCurveEndPoint
         bottom_nav.mSecondCurveEndPoint.set(
-            bottom_nav.mNavigationBarWidth / i + bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS / 3,
-            0
+                bottom_nav.mNavigationBarWidth / i + bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS / 3,
+                0
         )
         bottom_nav.mFirstCurveControlPoint1.set(
-            bottom_nav.mFirstCurveStartPoint.x + bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4,
-            bottom_nav.mFirstCurveStartPoint.y
+                bottom_nav.mFirstCurveStartPoint.x + bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4,
+                bottom_nav.mFirstCurveStartPoint.y
         )
         bottom_nav.mFirstCurveControlPoint2.set(
-            bottom_nav.mFirstCurveEndPoint.x - bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS,
-            bottom_nav.mFirstCurveEndPoint.y
+                bottom_nav.mFirstCurveEndPoint.x - bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS,
+                bottom_nav.mFirstCurveEndPoint.y
         )
         bottom_nav.mSecondCurveControlPoint1.set(
-            bottom_nav.mSecondCurveStartPoint.x + bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS,
-            bottom_nav.mSecondCurveStartPoint.y
+                bottom_nav.mSecondCurveStartPoint.x + bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS,
+                bottom_nav.mSecondCurveStartPoint.y
         )
         bottom_nav.mSecondCurveControlPoint2.set(
-            bottom_nav.mSecondCurveEndPoint.x - bottom_nav.CURVED_RADIUS - bottom_nav.CURVED_RADIUS / 4,
-            bottom_nav.mSecondCurveEndPoint.y
+                bottom_nav.mSecondCurveEndPoint.x - bottom_nav.CURVED_RADIUS - bottom_nav.CURVED_RADIUS / 4,
+                bottom_nav.mSecondCurveEndPoint.y
         )
 
 
@@ -134,47 +135,61 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
 
     private fun draw() {
         bottom_nav.mFirstCurveStartPoint.set(
-            bottom_nav.mNavigationBarWidth * 10 / 12 - bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS / 3,
-            0
+                bottom_nav.mNavigationBarWidth * 10 / 12 - bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS / 3,
+                0
         )
 
         bottom_nav.mFirstCurveEndPoint.set(
-            bottom_nav.mNavigationBarWidth * 10 / 12,
-            bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4
+                bottom_nav.mNavigationBarWidth * 10 / 12,
+                bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4
         )
         bottom_nav.mSecondCurveStartPoint = bottom_nav.mFirstCurveEndPoint
         bottom_nav.mSecondCurveEndPoint.set(
-            bottom_nav.mNavigationBarWidth * 10 / 12 + bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS / 3,
-            0
+                bottom_nav.mNavigationBarWidth * 10 / 12 + bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS / 3,
+                0
         )
         bottom_nav.mFirstCurveControlPoint1.set(
-            bottom_nav.mFirstCurveStartPoint.x + bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4,
-            bottom_nav.mFirstCurveStartPoint.y
+                bottom_nav.mFirstCurveStartPoint.x + bottom_nav.CURVED_RADIUS + bottom_nav.CURVED_RADIUS / 4,
+                bottom_nav.mFirstCurveStartPoint.y
         )
         bottom_nav.mFirstCurveControlPoint2.set(
-            bottom_nav.mFirstCurveEndPoint.x - bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS,
-            bottom_nav.mFirstCurveEndPoint.y
+                bottom_nav.mFirstCurveEndPoint.x - bottom_nav.CURVED_RADIUS * 2 + bottom_nav.CURVED_RADIUS,
+                bottom_nav.mFirstCurveEndPoint.y
         )
         bottom_nav.mSecondCurveControlPoint1.set(
-            bottom_nav.mSecondCurveStartPoint.x + bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS,
-            bottom_nav.mSecondCurveStartPoint.y
+                bottom_nav.mSecondCurveStartPoint.x + bottom_nav.CURVED_RADIUS * 2 - bottom_nav.CURVED_RADIUS,
+                bottom_nav.mSecondCurveStartPoint.y
         )
         bottom_nav.mSecondCurveControlPoint2.set(
-            bottom_nav.mSecondCurveEndPoint.x - bottom_nav.CURVED_RADIUS - bottom_nav.CURVED_RADIUS / 4,
-            bottom_nav.mSecondCurveEndPoint.y
+                bottom_nav.mSecondCurveEndPoint.x - bottom_nav.CURVED_RADIUS - bottom_nav.CURVED_RADIUS / 4,
+                bottom_nav.mSecondCurveEndPoint.y
         )
 
 
     }
 
-    private var backPressed: Long = 0
+    /*private var backPressed: Long = 0
 
     override fun onBackPressed() {
-        if (backPressed + 2000 > System.currentTimeMillis()) super.onBackPressed() else Toast.makeText(
-            baseContext,
-            "Press once again to exit!",
-            Toast.LENGTH_SHORT
+        if (backPressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+        } else Toast.makeText(
+                baseContext,
+                "Press once again to exit!",
+                Toast.LENGTH_SHORT
         ).show()
         backPressed = System.currentTimeMillis()
+    }*/
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Press once again to exit!", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
     }
 }

@@ -5,27 +5,23 @@
     style="@style/Custom"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Student.all_courses"
-    android:background="@drawable/general_background">
-
-
+    android:background="@drawable/general_background"
+    tools:context=".Student.all_courses">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerSyllabus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.tabs.TabLayout
-
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabBackground="@color/blue"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/grey"
-            app:tabBackground="@color/blue"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.tabs.TabItem

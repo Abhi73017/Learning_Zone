@@ -3,7 +3,6 @@ package com.abhishek.learningzone
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.abhishek.learningzone.admin.AdminDashboard
 import com.abhishek.learningzone.teacher.TrainerDashboard
@@ -14,11 +13,10 @@ import com.google.firebase.database.*
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var mDatabaseref: DatabaseReference
-    val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
-
+    private val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
     override fun onStart() {
-        if (user!=null){
+        if (user != null) {
             preRoleMatching(user)
         }
 
@@ -31,12 +29,12 @@ class SplashActivity : AppCompatActivity() {
 
         if (user == null) {
             Handler().postDelayed(
-                {
-                    Handler().postDelayed({
-                        startActivity(Intent(this, LoginActivity::class.java))
-                        finish()
-                    }, 500)
-                }, 2500
+                    {
+                        Handler().postDelayed({
+                            startActivity(Intent(this, LoginActivity::class.java))
+                            finish()
+                        }, 500)
+                    }, 2500
             )
         }
     }
@@ -52,20 +50,23 @@ class SplashActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 val role: String = p0.child("role").value.toString()
                 println(role)
-                    if (role == "Trainer") {
-                        val intent = Intent(this@SplashActivity, TrainerDashboard::class.java)
-                        startActivity(intent)
-                    }
-                    if (role == "Learner") {
-                        val intent = Intent(this@SplashActivity, DashBoard::class.java)
-                        startActivity(intent)
-                    }
-                    if (role == "Admin"){
-                        val intent = Intent(this@SplashActivity, AdminDashboard::class.java)
-                        startActivity(intent)
-                    }
-
+                if (role == "Trainer") {
+                    val intent = Intent(this@SplashActivity, TrainerDashboard::class.java)
+                    startActivity(intent)
+                    finish()
                 }
+                if (role == "Learner") {
+                    val intent = Intent(this@SplashActivity, DashBoard::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                if (role == "Admin") {
+                    val intent = Intent(this@SplashActivity, AdminDashboard::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+            }
 
 
         }

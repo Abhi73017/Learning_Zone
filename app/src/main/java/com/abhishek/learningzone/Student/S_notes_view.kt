@@ -54,7 +54,7 @@ class S_notes_view : AppCompatActivity() {
                         if (course_loading_progress.visibility == View.VISIBLE) {
                             course_loading_progress.visibility = View.GONE
                         }
-                        Toast.makeText(this@S_notes_view, "No Data Avalible", Toast.LENGTH_LONG)
+                        Toast.makeText(this@S_notes_view, "No Data Available", Toast.LENGTH_LONG)
                             .show()
                     }
 
