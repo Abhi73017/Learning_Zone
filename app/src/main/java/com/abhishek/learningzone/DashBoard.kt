@@ -79,6 +79,7 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
                 lin_id2.visibility = View.VISIBLE
                 fragment = info()
                 drawAnimation(fab3)
+
             }
         }
         return onFragmentLoad(fragment)
