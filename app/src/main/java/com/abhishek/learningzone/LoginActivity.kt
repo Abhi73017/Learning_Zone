@@ -47,15 +47,6 @@ class LoginActivity : AppCompatActivity() {
                 .apply {show() }
             signin(email, password)
         }
-
-        testbtn.setOnClickListener {
-            startActivity(Intent(this, T_Upload_Notes::class.java))
-
-        }
-        viewbtn.setOnClickListener {
-            startActivity(Intent(this, PdfReader::class.java))
-
-        }
     }
 
     private fun signin(email: String, pass: String) {
