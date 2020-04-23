@@ -7,23 +7,26 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.abhishek.learningzone.admin.AdminDashboard
 import com.abhishek.learningzone.teacher.T_Upload_Notes
 import com.abhishek.learningzone.teacher.TrainerDashboard
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
-    lateinit var alertdialog: AlertDialog //dont delete this sir...i will use this later
+    lateinit var alertdialog: AlertDialog
     private lateinit var mDatabaseref: DatabaseReference
     private lateinit var email: String
     private lateinit var password: String
     private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +37,15 @@ class LoginActivity : AppCompatActivity() {
 
         button.setOnClickListener {
 
+
             email = fieldEmail.text.toString()
             password = fieldPassword.text.toString()
-            //signin(email, password)
-            val intent = Intent(this, DashBoard::class.java)
-            startActivity(intent)
+            alertdialog= SpotsDialog.Builder()
+                .setContext(this)
+                .setTheme(R.style.Custom)
+                .build()
+                .apply {show() }
+            signin(email, password)
         }
 
         testbtn.setOnClickListener {
@@ -59,6 +66,12 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    alertdialog.cancel()
+                    alertdialog= SpotsDialog.Builder()
+                        .setContext(this)
+                        .setTheme(R.style.Custom1)
+                        .build()
+                        .apply {show() }
                     val user = auth.currentUser
                     roleMatching(user)
                 } else {
@@ -111,21 +124,27 @@ class LoginActivity : AppCompatActivity() {
                 val role: String = p0.child("role").value.toString()
                 println(role)
                 if (role == spinner1.selectedItem.toString()) {
-                    if (role == "trainer") {
+                    if (role == "Trainer") {
                         val intent = Intent(this@LoginActivity, TrainerDashboard::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (role == "learner") {
+                    if (role == "Learner") {
                         val intent = Intent(this@LoginActivity, DashBoard::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    if (role == "Admin"){
+                        val intent = Intent(this@LoginActivity, AdminDashboard::class.java)
                         startActivity(intent)
                         finish()
                     }
 
                 } else {
+                    alertdialog.cancel()
                     Toast.makeText(
                         this@LoginActivity,
-                        "You are not Authorised to Login as Selected Role",
+                        "You are not Authorised to Login as ${spinner1.selectedItem}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.abhishek.learningzone.main_fragments.Home
@@ -164,5 +165,16 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
         )
 
 
+    }
+
+    private var backPressed: Long = 0
+
+    override fun onBackPressed() {
+        if (backPressed + 2000 > System.currentTimeMillis()) super.onBackPressed() else Toast.makeText(
+            baseContext,
+            "Press once again to exit!",
+            Toast.LENGTH_SHORT
+        ).show()
+        backPressed = System.currentTimeMillis()
     }
 }

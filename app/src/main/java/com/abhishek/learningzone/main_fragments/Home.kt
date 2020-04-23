@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.abhishek.learningzone.R
 import com.abhishek.learningzone.Student.active_courses
 import com.abhishek.learningzone.Student.all_courses
-import com.abhishek.learningzone.Student.view_notices
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.android.synthetic.main.home_fragment.view.*
 
@@ -44,8 +44,9 @@ class Home : Fragment() {
             activity!!.startActivity(intent)
         }
         view.notice_board_btn.setOnClickListener {
-            val intent = Intent(activity, view_notices::class.java)
-            activity!!.startActivity(intent)
+            //val intent = Intent(activity, view_notices::class.java)
+            //activity!!.startActivity(intent)
+            Toast.makeText(activity, "Will be Available soon. Our team is working.", Toast.LENGTH_SHORT).show()
         }
 
         return view
