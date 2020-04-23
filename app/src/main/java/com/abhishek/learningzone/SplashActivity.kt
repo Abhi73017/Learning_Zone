@@ -1,8 +1,13 @@
 package com.abhishek.learningzone
 
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.abhishek.learningzone.admin.AdminDashboard
 import com.abhishek.learningzone.teacher.TrainerDashboard
@@ -16,8 +21,24 @@ class SplashActivity : AppCompatActivity() {
     private val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
     override fun onStart() {
-        if (user != null) {
-            preRoleMatching(user)
+
+        if (isOnline()) {
+            if (user != null) {
+                preRoleMatching(user)
+            }
+        }
+        else{
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Internet Connection is not Available.")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", DialogInterface.OnClickListener {
+                        dialog, id -> System.exit(-1)
+                    })
+
+            val alert = dialogBuilder.create()
+            alert.setTitle("Warning")
+            alert.show()
         }
 
         super.onStart()
@@ -27,17 +48,32 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        if (user == null) {
-            Handler().postDelayed(
-                    {
-                        Handler().postDelayed({
-                            startActivity(Intent(this, LoginActivity::class.java))
-                            finish()
-                        }, 500)
-                    }, 2500
-            )
+        if (isOnline()) {
+            if (user == null) {
+                Handler().postDelayed(
+                        {
+                            Handler().postDelayed({
+                                startActivity(Intent(this, LoginActivity::class.java))
+                                finish()
+                            }, 500)
+                        }, 2500
+                )
+            }
         }
-    }
+        else {
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Internet Connection is not Available.")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", DialogInterface.OnClickListener {
+                        dialog, id -> System.exit(-1)
+                    })
+
+            val alert = dialogBuilder.create()
+            alert.setTitle("Warning")
+            alert.show()
+        }
+        }
 
     private fun preRoleMatching(user: FirebaseUser?) {
 
@@ -65,12 +101,15 @@ class SplashActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-
             }
-
-
         }
         )
 
+    }
+
+    fun isOnline(): Boolean {
+        val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
+        return networkInfo?.isConnected == true
     }
 }

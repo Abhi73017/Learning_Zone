@@ -53,6 +53,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/bold"
+            android:text="Dr. Biplab Goswami"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:text="Training and Placement Officer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/bold"
             android:text="Prof. Dhruba Jyoti Kalita"
             android:textAlignment="center"
             android:textColor="@color/blue"
@@ -86,24 +105,6 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/bold"
-            android:text="Dr. Biplab Goswami"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="25dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/bold"
-            android:text="Training and Placement Officer"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
