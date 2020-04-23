@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.abhishek.learningzone.admin.AdminDashboard
-import com.abhishek.learningzone.teacher.T_Upload_Notes
 import com.abhishek.learningzone.teacher.TrainerDashboard
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
@@ -35,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        button.setOnClickListener {
+        login_btn.setOnClickListener {
 
 
             email = fieldEmail.text.toString()
@@ -51,6 +50,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun signin(email: String, pass: String) {
         if (!validateForm()) {
+
+            alertdialog.cancel()
             return
         }
 
@@ -77,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
                         baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
+                    alertdialog.cancel()
                 }
             }
     }
