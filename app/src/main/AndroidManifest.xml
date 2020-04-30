@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.abhishek.learningzone">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -15,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="o">
+        <activity android:name=".admin.AdminDashboard"></activity>
         <activity
             android:name=".Student.all_courses"
             android:label="@string/title_activity_all_courses"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".admin.AdminDashboard" />
         <activity android:name=".PdfReader" />
         <activity android:name=".Student.view_notices" />
         <activity android:name=".Student.active_courses" />
@@ -42,6 +42,7 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -16,8 +16,4 @@ class info : Fragment() {
         return inflater.inflate(R.layout.fragment_info, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
 }

@@ -2,7 +2,7 @@
     <string name="app_name">Learning Zone</string>
 
     <string-array name="Role">
-        <item>Select Your Role     ></item>
+        <item>Select Your Role</item>
         <item>Learner</item>
         <item>Trainer</item>
         <item>Admin</item>

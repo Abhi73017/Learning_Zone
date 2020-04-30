@@ -10,7 +10,5 @@ data class DatabaseCourse(
     val filename: String,
     val downloadUri: String
 ) {
-    constructor() : this("", "", "") {
-
-    }
+    constructor() : this("", "", "")
 }

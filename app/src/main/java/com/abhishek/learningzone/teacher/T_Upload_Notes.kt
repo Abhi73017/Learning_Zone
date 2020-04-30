@@ -77,7 +77,7 @@ class T_Upload_Notes : AppCompatActivity() {
             uri = data?.data!!
 
             val file = File(uri!!.path)
-            selectfilebtn.text = file.getName().toString()
+            selectfilebtn.text = file.name.toString()
 
         }
     }

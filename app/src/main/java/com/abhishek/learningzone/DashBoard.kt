@@ -55,7 +55,6 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
         when (p0.itemId) {
             R.id.account -> {
                 draw(6)
-                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
                 lin_id1.visibility = View.VISIBLE
                 lin_id.visibility = View.GONE
                 lin_id2.visibility = View.GONE
@@ -64,7 +63,6 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
             }
             R.id.home -> {
                 draw(2)
-                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
                 lin_id1.visibility = View.GONE
                 lin_id.visibility = View.VISIBLE
                 lin_id2.visibility = View.GONE
@@ -73,7 +71,6 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
             }
             R.id.info -> {
                 draw()
-                //lin_id.x = bottom_nav.mFirstCurveControlPoint1.x.toFloat()
                 lin_id.visibility = View.GONE
                 lin_id1.visibility = View.GONE
                 lin_id2.visibility = View.VISIBLE
@@ -169,18 +166,6 @@ class DashBoard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
 
     }
 
-    /*private var backPressed: Long = 0
-
-    override fun onBackPressed() {
-        if (backPressed + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed()
-        } else Toast.makeText(
-                baseContext,
-                "Press once again to exit!",
-                Toast.LENGTH_SHORT
-        ).show()
-        backPressed = System.currentTimeMillis()
-    }*/
     private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {

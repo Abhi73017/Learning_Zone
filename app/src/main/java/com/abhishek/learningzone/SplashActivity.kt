@@ -22,7 +22,10 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onStart() {
 
-        if (isOnline()) {
+        val intent = Intent(this, DashBoard::class.java)
+        startActivity(intent)
+
+        /*if (isOnline()) {
             if (user != null) {
                 preRoleMatching(user)
             }
@@ -39,7 +42,7 @@ class SplashActivity : AppCompatActivity() {
             val alert = dialogBuilder.create()
             alert.setTitle("Warning")
             alert.show()
-        }
+        }*/
 
         super.onStart()
     }

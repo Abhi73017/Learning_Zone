@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         login_btn.setOnClickListener {
+
             email = fieldEmail.text.toString()
             password = fieldPassword.text.toString()
             alertdialog = SpotsDialog.Builder()

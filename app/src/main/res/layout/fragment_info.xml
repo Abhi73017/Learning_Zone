@@ -39,7 +39,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/button"
+            android:background="@drawable/gradient_btn"
             android:clickable="false"
             android:fontFamily="@font/bold"
             android:text="Special Thanks"
@@ -131,7 +131,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/button"
+            android:background="@drawable/gradient_btn"
             android:clickable="false"
             android:fontFamily="@font/bold"
             android:text="Developers"
@@ -184,7 +184,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/button"
+            android:background="@drawable/gradient_btn"
             android:clickable="false"
             android:fontFamily="@font/bold"
             android:text="Designer"
@@ -206,9 +206,44 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
             android:fontFamily="@font/bold"
             android:text="Student | Research Scholar | Programmer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/gradient_btn"
+            android:clickable="false"
+            android:fontFamily="@font/bold"
+            android:text="Technical Advisor"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/bold"
+            android:text="Anuj Kumar"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="120dp"
+            android:fontFamily="@font/bold"
+            android:text="Student | Programmer"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="15dp" />
