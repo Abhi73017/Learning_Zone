@@ -98,7 +98,7 @@ class T_Upload_Notes : AppCompatActivity() {
                 }
                 .addOnFailureListener {
                     //choosenText.text = "Uploading Failed"
-                    Toast.makeText(this@T_Upload_Notes, "Upload Failed", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@T_Upload_Notes, "Upload Failed", Toast.LENGTH_SHORT).show()
                 }.addOnProgressListener {
                     val progress = (100.0 * it.bytesTransferred) / it.totalByteCount
                     upload_progress.progress = progress.toInt()
@@ -107,9 +107,9 @@ class T_Upload_Notes : AppCompatActivity() {
     }
 
     private fun insertDatabase(course: String, filename: String, DownloadUri: String) {
-        var Dref = FirebaseDatabase.getInstance().getReference("Course/$course")
-        var DId = Dref.push().key
-        var databaseCourse = DatabaseCourse(DId!!, filename, DownloadUri)
+        val Dref = FirebaseDatabase.getInstance().getReference("Course/$course")
+        val DId = Dref.push().key
+        val databaseCourse = DatabaseCourse(DId!!, filename, DownloadUri)
         Dref.child(DId).setValue(databaseCourse).addOnSuccessListener {
             Toast.makeText(applicationContext, "Upload Complete", Toast.LENGTH_LONG).show()
         }

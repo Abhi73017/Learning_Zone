@@ -71,5 +71,4 @@ class S_notes_view : AppCompatActivity() {
         rv_CourseList.adapter = adapter
         rv_CourseList.layoutManager = LinearLayoutManager(this@S_notes_view)
     }
-
 }
