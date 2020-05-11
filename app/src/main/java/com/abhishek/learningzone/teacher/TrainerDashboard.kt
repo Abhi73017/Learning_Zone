@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.abhishek.learningzone.CreateVideo
 import com.abhishek.learningzone.LoginActivity
 import com.abhishek.learningzone.R
 import com.google.firebase.auth.FirebaseAuth
@@ -39,10 +40,9 @@ class TrainerDashboard : AppCompatActivity() {
             //startActivity(intent)
             Toast.makeText(this, "Assignments can be given at-least 10 days after beginning of course", Toast.LENGTH_SHORT).show()
         }
-        send_notice_btn.setOnClickListener {
-            //val intent = Intent(this, T_send_notice::class.java)
-            //startActivity(intent)
-            Toast.makeText(this, "Will be available soon", Toast.LENGTH_SHORT).show()
+        create_video_btn.setOnClickListener {
+            val intent = Intent(this, CreateVideo::class.java)
+            startActivity(intent)
         }
         trainer_logout_btn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()

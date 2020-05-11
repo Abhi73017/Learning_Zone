@@ -105,26 +105,6 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/bold"
-            android:text="Shubham Kumar"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="25dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/bold"
-            android:text="Final Year Student"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="15dp" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -221,12 +201,31 @@
             android:background="@drawable/gradient_btn"
             android:clickable="false"
             android:fontFamily="@font/bold"
-            android:text="Technical Advisor"
+            android:text="Additional Support"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="30dp"
             tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/bold"
+            android:text="Shubham Kumar"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:text="Final Year Student"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"

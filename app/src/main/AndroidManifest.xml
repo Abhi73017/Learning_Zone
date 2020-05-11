@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -15,24 +17,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="o">
-        <activity android:name=".admin.AdminDashboard"></activity>
+        <activity android:name=".CreateVideo"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".admin.AdminDashboard"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".Student.all_courses"
+            android:screenOrientation="nosensor"
             android:label="@string/title_activity_all_courses"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PdfReader" />
+        <activity android:name=".PdfReader"
+            android:screenOrientation="fullSensor"/>
         <activity android:name=".Student.view_notices" />
-        <activity android:name=".Student.active_courses" />
-        <activity android:name=".Student.S_notes_view" />
-        <activity android:name=".courses.ActiveCourseViewActivity" />
+        <activity android:name=".Student.active_courses"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".Student.S_notes_view"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".courses.ActiveCourseViewActivity"
+            android:screenOrientation="nosensor"/>
         <activity android:name=".teacher.T_send_notice" />
         <activity android:name=".teacher.T_check_assign" />
         <activity android:name=".teacher.T_Upload_assign" />
         <activity android:name=".teacher.TrainerDashboard" />
-        <activity android:name=".teacher.T_Upload_Notes" />
-        <activity android:name=".DashBoard" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".teacher.T_Upload_Notes"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".DashBoard"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        register_btn.setOnClickListener {
+         Toast.makeText(this, "Coming Soon, Feature not implemented yet", Toast.LENGTH_SHORT).show()
+        }
+
         login_btn.setOnClickListener {
 
             email = fieldEmail.text.toString()

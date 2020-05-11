@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.abhishek.learningzone
 
 import android.content.Context
@@ -24,6 +26,7 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var mDatabaseref: DatabaseReference
     private val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private val MY_REQUEST_CODE = 9465
+
 
     override fun onStart() {
 
